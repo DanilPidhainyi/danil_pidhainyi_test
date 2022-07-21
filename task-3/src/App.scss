@@ -1,0 +1,93 @@
+@import 'https://fonts.googleapis.com/css?family=Catamaran';
+
+html, body {
+  margin: 0;
+  padding-top: 1.5rem;
+  font-family: 'Catamaran', sans-serif;
+}
+
+body {
+  --height: 50px;
+  --width: 400px;
+  --border: 5px;
+  --speed: 0.4;
+  --ease: cubic-bezier(.85,.01,.4,.97);
+  --color-bk: #6CD4FF; //#547AA5;
+
+  background: var(--color-bk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition-property: background;
+  transition-duration: calc(var(--speed) * 1s);
+  transition-timing-function: var(--ease);
+
+  &:focus-within {
+    --speed: 0.7;
+    background-color: #63C1E8; //#456488;
+  }
+}
+
+.input-container {
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  cursor: pointer;
+  background-color: var(--color-bk);
+  border-radius: 2em;
+  border: var(--border) solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  color: white;
+  background: transparent;
+  font-size: 1.3rem;
+  //opacity: 0;
+  padding-left: 0.7em;
+  margin: 0;
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 2em;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 10px 50px 0px rgba(0,0,0,0.1);
+  transition: inherit;
+  transform: scalex(0) translateY(-10px);
+  opacity: 0;
+}
+
+.button {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+}
+
+.button:hover {
+  transition: all .5s;
+  transform: scale(1.3);
+}
+
+.button:active {
+  transform: rotate(300deg);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
