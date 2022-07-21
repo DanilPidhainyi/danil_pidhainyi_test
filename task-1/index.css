@@ -1,0 +1,87 @@
+* {
+    --flag_width: 300px;
+    --flag_height: calc( var(--flag_width) * 2/3);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    width: var(--flag_width);
+    height: var(--flag_height);
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.Ukraine {
+    background: linear-gradient(#005BBC 50%, #FFD600 50%);
+}
+
+.Japan {
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.Japan::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc( var(--flag_height) * 3/5);
+    height: calc( var(--flag_height) * 3/5);
+    background-color: #BD0029;
+    border-radius: 50%;
+}
+
+.Iceland {
+    background-color: #02529C;
+    position: relative;
+    --part: calc(var(--flag_width) / 25);
+    overflow: hidden;
+}
+
+
+.Iceland__line {
+    width: calc(2 * var(--part));
+    height: var(--flag_width);
+    background-color: #DB334F;
+}
+
+.Iceland__line--shadow {
+    box-shadow: calc(-1* var(--part)) 0 0 0 white,
+                var(--part) 0 0px 0px white;
+}
+
+.Iceland__line--vertical {
+    position: absolute;
+    right: calc(var(--flag_width) * 9/16);
+    transform: translateX(-50%);
+}
+
+.Iceland__line--horizontal {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-50%);
+}
+
+.Czech {
+    background: linear-gradient(#F7F7F7 50%, #D01319 50%);
+    position: relative;
+}
+
+.Czech::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.5px;
+    width: 0;
+    height: 0;
+    border-top: calc(var(--flag_height) * 0.5) solid transparent;
+    border-left: calc(var(--flag_width) * 0.5) solid #11447E;
+    border-bottom: calc(var(--flag_height) * 0.5) solid transparent;
+}
